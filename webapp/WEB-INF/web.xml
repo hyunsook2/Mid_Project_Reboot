@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>jspstudy</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+  	<param-name>INIT_PARAM</param-name>
+  	<param-value>배포서술자에 저장된 초기화 매개변수</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OracleDriver</param-name>
+  	<param-value>oracle.jdbc.OracleDriver</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OracleUrl</param-name>
+  	<param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OracleId</param-name>
+  	<param-value>REBOOT</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>OraclePw</param-name>
+  	<param-value>1234</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>PAGE_SIZE</param-name>
+  	<param-value>10</param-value>
+  </context-param>
+  <context-param>
+  	<param-name>PAGING_BLOCK</param-name>
+  	<param-value>5</param-value>
+  </context-param>
+  
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/02implicitObject/Exception.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>405</error-code>
+  	<location>/02implicitObject/Exception.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/02implicitObject/Exception.jsp</location>
+  </error-page>
+  
+  <filter>
+  	<filter-name>SetCharEncoding</filter-name>
+  	<filter-class>org.apache.catalina.filters.SetCharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  </filter>
+  <filter-mapping>
+  	<filter-name>SetCharEncoding</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  	<servlet-name>FirstServlet</servlet-name>
+  	<servlet-class>servlet.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>FirstServlet</servlet-name>
+  	<url-pattern>/13Servlet/FirstServlet.do</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+     <servlet-name>ServletView</servlet-name>
+     <servlet-class>servlet.ServletView</servlet-class>
+  </servlet>
+  <servlet-mapping>
+     <servlet-name>ServletView</servlet-name>
+    <url-pattern>/ServletView.do</url-pattern>    
+  </servlet-mapping>
+<!--  
+  <servlet>
+     <servlet-name>MemberAuth</servlet-name>
+     <servlet-class>servlet.MemberAuth</servlet-class>
+     <init-param>
+     	<param-name>manager</param-name>
+     	<param-value>admin</param-value>
+     </init-param>
+  </servlet>
+
+  <servlet-mapping>
+     <servlet-name>MemberAuth</servlet-name>
+    <url-pattern>/13Servlet/MemberAuth.mvc</url-pattern>    
+  </servlet-mapping>
+-->
+  <servlet>
+  	<servlet-name>M2BoardList</servlet-name>
+  	<servlet-class>m2board.ListController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>M2BoardList</servlet-name>
+  	<url-pattern>/m2board/list.do</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+  	<servlet-name>M2BoardWrite</servlet-name>
+  	<servlet-class>m2board.WriteController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>M2BoardWrite</servlet-name>
+  	<url-pattern>/m2board/write.do</url-pattern>
+  </servlet-mapping>
+  
+  <context-param>
+  	<param-name>maxPostSize</param-name>
+  	<param-value>1024000</param-value>
+  </context-param>
+  
+  <context-param>
+  	<param-name>CHAT_ADDR</param-name>
+  	<param-value>ws://localhost:8081/jspstudy</param-value>
+  </context-param>
+  <display-name>
+	whitetrees
+  </display-name>
+  <welcome-file-list>
+	<welcome-file>org_frame.html</welcome-file>
+  </welcome-file-list>
+  
+  
+</web-app>

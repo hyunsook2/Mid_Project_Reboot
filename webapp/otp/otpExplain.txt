@@ -1,0 +1,4 @@
+OtpController에서 실행하면 otpTest.jsp 키값(랜덤생성)과 주소값이 자동 등록되고 
+https://chrome.google.com/webstore/detail/authenticator/bhghoamapcdpbohphigoooaddinpkbai
+위 주소에서 구글 인증 도구 앱을 깔아준뒤 id는 대충 넣어도되고 아래 코드값에 자동생성된 키값을 넣고 전송하면
+OtpResultServelt에서 검사한뒤 맞으면 true 틀리면 false를 반환함
